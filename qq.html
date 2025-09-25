@@ -1,1 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Execute Command</title>
+</head>
+<body>
+  <script>
+    // 在Electron环境下运行这个代码
+    const { exec } = require('child_process');
 
+    exec('calc', (error, stdout, stderr) => {
+      if (error) {
+        alert(`Error executing command: ${error.message}`);
+        return;
+      }
+      if (stderr) {
+        alert(`Standard Error: ${stderr}`);
+      }
+      alert(`Standard Output: ${stdout}`);
+    });
+  </script>
+</body>
+</html>
